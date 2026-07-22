@@ -1,0 +1,896 @@
+/* ==========================================
+   CONFIGURACIÓN GENERAL
+==========================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    position:relative;
+
+    font-family:'Playfair Display',serif;
+
+    background:
+    radial-gradient(circle,
+    #fff8f8 0%,
+    #f6d8df 55%,
+    #e8bcc5 100%);
+
+}
+
+
+/*==========================================
+      CONTENEDOR GENERAL
+==========================================*/
+
+.contenedor{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    background-image:url("imagen1.jpeg");
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size:contain;
+
+}
+
+
+/*==========================================
+              SOBRE
+==========================================*/
+
+.sobre{
+
+    position:absolute;
+
+    width:300px;
+    height:200px;
+
+    cursor:pointer;
+
+    z-index:20;
+
+    animation:flotar 3.5s ease-in-out infinite;
+
+}
+
+.cuerpo{
+
+    width:100%;
+    height:100%;
+
+    position:absolute;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(135deg,#7c3a4b,#bd8389);
+
+    border-radius:10px;
+
+    border:2px solid #dfba6b;
+
+    color:#dfba6b;
+
+    font-size:38px;
+
+    letter-spacing:4px;
+
+    box-shadow:
+    0 20px 45px rgba(0,0,0,.25);
+
+}
+
+.tapa{
+
+    position:absolute;
+
+    width:0;
+    height:0;
+
+    border-left:150px solid transparent;
+    border-right:150px solid transparent;
+    border-top:110px solid #cc969b;
+
+    transform-origin:top;
+
+    transition:1s;
+
+    z-index:5;
+
+}
+
+.sobre.abierto .tapa{
+
+    transform:rotateX(180deg);
+
+}
+
+.sobre.abierto{
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:1.2s;
+
+}
+
+.sello{
+
+    position:absolute;
+
+    width:50px;
+    height:50px;
+
+    left:125px;
+    top:75px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#dfba6b;
+
+    color:#7c3a4b;
+
+    font-size:24px;
+
+    z-index:8;
+
+    box-shadow:
+    0 5px 12px rgba(0,0,0,.2);
+
+}
+
+.sobre p{
+
+    position:absolute;
+
+    width:100%;
+
+    bottom:-45px;
+
+    text-align:center;
+
+    color:#7c3a4b;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+/*==========================================
+              CARTA
+==========================================*/
+
+.carta{
+
+    width:92%;
+    max-width:600px;
+
+    max-height:88vh;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    position:relative;
+
+    padding:120px 40px 100px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.18);
+
+    backdrop-filter:blur(5px);
+
+    border:2px solid #dfba6b;
+
+    outline:1px solid #dfba6b;
+
+    outline-offset:-8px;
+
+    box-shadow:
+    0 35px 70px rgba(124,58,75,.25);
+
+    transform:translateY(100vh) scale(.75);
+
+    opacity:0;
+
+    transition:
+    transform 1.8s cubic-bezier(.16,1,.3,1),
+    opacity 1.5s;
+
+}
+
+.carta.mostrar{
+
+    transform:translateY(0) scale(1);
+
+    opacity:1;
+
+}
+
+.carta::-webkit-scrollbar{
+
+    width:4px;
+
+}
+
+.carta::-webkit-scrollbar-thumb{
+
+    background:#dfba6b;
+
+    border-radius:10px;
+
+}
+
+.carta::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+
+/*==========================================
+       LLUVIA DORADA
+==========================================*/
+
+.carta::before{
+
+    content:"✨ 👑 ⭐ ✨ 👑 ⭐ ✨ 👑 ⭐";
+
+    position:absolute;
+
+    left:0;
+    top:-60px;
+
+    width:100%;
+
+    word-spacing:40px;
+
+    color:rgba(223,186,107,.45);
+
+    font-size:15px;
+
+    white-space:nowrap;
+
+    pointer-events:none;
+
+    animation:lluviaMagica 8s linear infinite;
+
+    text-shadow:
+    0 120px rgba(223,186,107,.4),
+    0 260px rgba(223,186,107,.4),
+    0 420px rgba(223,186,107,.4),
+    0 580px rgba(223,186,107,.4),
+    0 740px rgba(223,186,107,.4);
+
+}
+
+.animar-bloque{
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    transition:
+
+    opacity 1.6s ease,
+
+    transform 1.6s ease;
+
+}
+
+.animar-bloque.visible{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/*==========================================
+        ESTRUCTURA DE CONTENIDO
+==========================================*/
+
+.seccion{
+
+    width:100%;
+
+    margin:70px 0;
+
+    padding:28px 24px;
+
+    background:rgba(255,255,255,.45);
+
+    backdrop-filter:blur(3px);
+
+    border-radius:16px;
+
+    box-shadow:
+    0 10px 25px rgba(124,58,75,.08);
+
+}
+
+.flores{
+
+    font-size:32px;
+
+    margin-bottom:20px;
+
+}
+
+h3{
+
+    font-size:15px;
+
+    color:#dfba6b;
+
+    text-transform:uppercase;
+
+    letter-spacing:5px;
+
+    font-weight:500;
+
+    margin-bottom:18px;
+
+}
+
+
+/*==========================================
+            NOMBRE
+==========================================*/
+
+h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:64px;
+
+    color:#7c3a4b;
+
+    font-weight:500;
+
+    line-height:1.12;
+
+    margin:25px 0;
+
+    text-shadow:
+        0 2px 3px rgba(255,255,255,.95),
+        0 0 10px rgba(124,58,75,.20);
+
+}
+
+
+/*==========================================
+            LÍNEA DECORATIVA
+==========================================*/
+
+.linea{
+
+    width:68%;
+
+    margin:40px auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.linea::before,
+.linea::after{
+
+    content:"";
+
+    flex:1;
+
+    height:2px;
+
+    background:#dfba6b;
+
+    opacity:.6;
+
+}
+
+.linea::before{
+
+    margin-right:12px;
+
+}
+
+.linea::after{
+
+    margin-left:12px;
+
+}
+
+.linea-rombo{
+
+    color:#dfba6b;
+
+    font-size:12px;
+
+}
+
+
+/*==========================================
+            MENSAJE
+==========================================*/
+
+.mensaje{
+
+    max-width:92%;
+
+    margin:35px auto;
+
+    padding:0 18px;
+
+    font-size:18px;
+
+    line-height:1.9;
+
+    text-align:center;
+
+    color:#593942;
+
+    font-style:italic;
+
+    font-weight:600;
+
+    letter-spacing:.2px;
+
+}
+
+/*==========================================
+             PADRES
+==========================================*/
+
+.seccion p{
+
+    font-size:21px;
+
+    color:#4e373d;
+
+    margin-bottom:18px;
+
+}
+
+h2{
+
+    color:#7c3a4b;
+
+    font-size:31px;
+
+    font-weight:700;
+
+    line-height:1.45;
+
+    letter-spacing:.5px;
+
+}
+
+
+/*==========================================
+          FECHA Y LUGAR
+==========================================*/
+
+.datos{
+
+    margin-top:70px;
+
+    padding-top:40px;
+
+    border-top:2px solid rgba(223,186,107,.45);
+
+}
+
+.datos h3{
+
+    font-size:26px;
+
+    color:#7c3a4b;
+
+    font-weight:bold;
+
+    margin-bottom:25px;
+
+}
+
+.datos p{
+
+    margin:18px 0;
+
+    font-size:21px;
+
+    line-height:1.8;
+
+    color:#554144;
+
+}
+
+
+/*==========================================
+            MENSAJE FINAL
+==========================================*/
+
+.final{
+
+    font-size:24px;
+
+    color:#7c3a4b;
+
+    line-height:1.7;
+
+    letter-spacing:.5px;
+
+    margin-bottom:35px;
+
+}
+
+
+/*==========================================
+              CONTADOR
+==========================================*/
+
+.contador{
+
+    margin-top:50px;
+
+    padding:30px 25px;
+
+    background:rgba(255,255,255,.65);
+
+    border:2px dashed rgba(223,186,107,.65);
+
+    border-radius:16px;
+
+    box-shadow:
+        inset 0 0 20px rgba(223,186,107,.08);
+
+}
+
+.contador h2{
+
+    font-size:18px;
+
+    color:#dfba6b;
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+
+    margin-bottom:20px;
+
+}
+
+.contador p{
+
+    font-size:22px;
+
+    color:#7c3a4b;
+
+    line-height:1.8;
+
+}
+
+.contador span{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    color:#7c3a4b;
+
+}
+/*==========================================
+        LLUVIA EN EL FONDO
+==========================================*/
+
+body::before{
+
+    content:"✨ 👑 ⭐ ✨ 👑 ⭐ ✨ 👑 ⭐ ✨";
+
+    position:absolute;
+
+    top:-60px;
+    left:0;
+
+    width:100%;
+
+    font-size:15px;
+
+    word-spacing:45px;
+
+    color:rgba(223,186,107,.35);
+
+    white-space:nowrap;
+
+    pointer-events:none;
+
+    z-index:1;
+
+    animation:lluviaMagica 9s linear infinite;
+
+    text-shadow:
+        0 120px rgba(223,186,107,.25),
+        0 260px rgba(223,186,107,.25),
+        0 420px rgba(223,186,107,.25),
+        0 580px rgba(223,186,107,.25),
+        0 740px rgba(223,186,107,.25);
+
+}
+
+
+/*==========================================
+            ANIMACIONES
+==========================================*/
+
+@keyframes flotar{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+}
+
+@keyframes lluviaMagica{
+
+    0%{
+
+        transform:translateY(0) rotate(0deg);
+
+        opacity:.85;
+
+    }
+
+    50%{
+
+        opacity:.45;
+
+    }
+
+    100%{
+
+        transform:translateY(100vh) rotate(5deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/*==========================================
+        EFECTOS HOVER
+==========================================*/
+
+.carta{
+
+    transition:
+        transform .8s,
+        opacity 1.5s,
+        box-shadow .5s;
+
+}
+
+.carta:hover{
+
+    box-shadow:
+        0 40px 90px rgba(124,58,75,.35);
+
+}
+
+
+/*==========================================
+        RESPONSIVE TABLET
+==========================================*/
+
+@media(max-width:900px){
+
+    .carta{
+
+        max-width:560px;
+
+        padding:110px 34px 90px;
+
+    }
+
+}
+
+
+/*==========================================
+        RESPONSIVE CELULAR
+==========================================*/
+
+@media(max-width:600px){
+
+    .carta{
+
+        width:94%;
+
+        max-height:90vh;
+
+        padding:95px 28px 85px;
+
+    }
+
+    h1{
+
+        font-size:56px;
+
+    }
+
+    h2{
+
+        font-size:27px;
+
+    }
+
+    h3{
+
+        font-size:16px;
+
+        letter-spacing:3px;
+
+    }
+
+    .mensaje{
+
+        font-size:20px;
+
+        line-height:2;
+
+        padding:0 10px;
+
+    }
+
+    .datos h3{
+
+        font-size:22px;
+
+    }
+
+    .datos p{
+
+        font-size:19px;
+
+        line-height:1.7;
+
+    }
+
+    .final{
+
+        font-size:22px;
+
+        line-height:1.6;
+
+    }
+
+    .contador{
+
+        padding:25px 18px;
+
+    }
+
+    .contador h2{
+
+        font-size:16px;
+
+    }
+
+    .contador p{
+
+        font-size:19px;
+
+    }
+
+    .contador span{
+
+        font-size:34px;
+
+    }
+
+    .flores{
+
+        font-size:28px;
+
+    }
+
+}
+
+
+/*==========================================
+        CELULARES MUY PEQUEÑOS
+==========================================*/
+
+@media(max-width:380px){
+
+    h1{
+
+        font-size:48px;
+
+    }
+
+    .mensaje{
+
+        font-size:18px;
+
+    }
+
+    h2{
+
+        font-size:24px;
+
+    }
+
+    .datos p{
+
+        font-size:17px;
+
+    }
+
+    .contador span{
+
+        font-size:30px;
+
+    }
+
+}
+
+
+/*==========================================
+        PRIMERA SECCIÓN
+==========================================*/
+
+.seccion:first-of-type{
+
+    margin-top:30px;
+
+}
