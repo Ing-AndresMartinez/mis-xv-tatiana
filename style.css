@@ -1,0 +1,1358 @@
+/*==================================================
+            CONFIGURACIÓN GENERAL
+==================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    position:relative;
+
+    font-family:'Playfair Display',serif;
+
+    background:
+    radial-gradient(circle at top,
+    #fffdfd 0%,
+    #faecef 45%,
+    #e4bcc6 100%);
+}
+
+
+
+/*==================================================
+            CONTENEDOR
+==================================================*/
+
+.contenedor{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    position:relative;
+
+    background:url("imagen1.jpeg")
+    center center/contain no-repeat;
+
+}
+
+
+
+/*==================================================
+                 SOBRE
+==================================================*/
+
+.sobre{
+
+    position:absolute;
+
+    width:370px;
+    height:245px;
+
+    cursor:pointer;
+
+    z-index:50;
+
+    animation:flotar 3.2s ease-in-out infinite;
+
+}
+
+
+
+/*=========================
+        CUERPO
+==========================*/
+
+.cuerpo{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(135deg,
+    #83505f,
+    #c79099);
+
+    border-radius:16px;
+
+    border:2px solid #ddb75d;
+
+    box-shadow:
+
+        0 25px 55px rgba(0,0,0,.22);
+
+}
+
+
+
+/*=========================
+          XV
+==========================*/
+
+.cuerpo span{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:88px;
+
+    color:#ddb75d;
+
+    font-weight:700;
+
+    letter-spacing:10px;
+
+    text-shadow:
+
+        0 0 18px rgba(255,220,120,.55);
+
+    animation:xv 2.8s ease-in-out infinite;
+
+}
+
+
+
+/*=========================
+         TAPA
+==========================*/
+
+.tapa{
+
+    position:absolute;
+
+    width:0;
+    height:0;
+
+    border-left:185px solid transparent;
+    border-right:185px solid transparent;
+
+    border-top:135px solid #c98d97;
+
+    transform-origin:top;
+
+    transition:1s;
+
+    z-index:10;
+
+}
+
+.sobre.abierto .tapa{
+
+    transform:rotateX(180deg);
+
+}
+
+
+
+/*=========================
+         SELLO
+==========================*/
+
+.sello{
+
+    position:absolute;
+
+    width:68px;
+    height:68px;
+
+    left:151px;
+    top:86px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:#ddb75d;
+
+    color:#7b4354;
+
+    font-size:34px;
+
+    box-shadow:
+
+        0 8px 18px rgba(0,0,0,.22);
+
+    z-index:20;
+
+}
+
+
+
+/*=========================
+      TEXTO
+==========================*/
+
+.sobre p{
+
+    position:absolute;
+
+    width:100%;
+
+    bottom:-60px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    color:#7b4354;
+
+    font-weight:600;
+
+    letter-spacing:4px;
+
+}
+
+
+
+/*=========================
+     ABRIR SOBRE
+==========================*/
+
+.sobre.abierto{
+
+    opacity:0;
+
+    transform:scale(.9);
+
+    pointer-events:none;
+
+    transition:1.2s;
+
+}
+
+/*==================================================
+                    CARTA
+==================================================*/
+
+.carta{
+
+    position:relative;
+
+    width:92%;
+    max-width:650px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    padding:95px 45px 80px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        rgba(255,255,255,.92),
+        rgba(255,255,255,.75)
+    );
+
+    backdrop-filter:blur(16px);
+
+    border:2px solid rgba(221,183,93,.85);
+
+    box-shadow:
+
+        0 35px 80px rgba(124,58,75,.22),
+
+        inset 0 0 25px rgba(255,255,255,.45);
+
+    transform:
+        translateY(100vh)
+        scale(.75);
+
+    opacity:0;
+
+    transition:
+
+        transform 1.6s cubic-bezier(.17,1,.30,1),
+
+        opacity 1.5s;
+
+}
+
+
+
+/*=========================
+      CARTA ABIERTA
+==========================*/
+
+.carta.mostrar{
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    opacity:1;
+
+}
+
+
+
+/*=========================
+        HOVER
+==========================*/
+
+.carta:hover{
+
+    box-shadow:
+
+        0 45px 100px rgba(124,58,75,.28),
+
+        inset 0 0 30px rgba(255,255,255,.55);
+
+}
+
+
+
+/*=========================
+      SCROLL
+==========================*/
+
+.carta::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.carta::-webkit-scrollbar-thumb{
+
+    background:#ddb75d;
+
+    border-radius:50px;
+
+}
+
+.carta::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+
+
+/*==================================================
+      BRILLOS DORADOS
+==================================================*/
+
+.carta::before{
+
+    content:"✦ ✧ ✦ ✧ ✦ ✧ ✦";
+
+    position:absolute;
+
+    left:0;
+    top:-80px;
+
+    width:100%;
+
+    text-align:center;
+
+    letter-spacing:42px;
+
+    color:rgba(221,183,93,.45);
+
+    font-size:20px;
+
+    animation:lluvia 9s linear infinite;
+
+    pointer-events:none;
+
+    text-shadow:
+
+        0 140px rgba(221,183,93,.35),
+
+        0 280px rgba(221,183,93,.30),
+
+        0 420px rgba(221,183,93,.25),
+
+        0 560px rgba(221,183,93,.20),
+
+        0 700px rgba(221,183,93,.15);
+
+}
+
+
+
+/*==================================================
+        APARICIÓN DE BLOQUES
+==================================================*/
+
+.animar-bloque{
+
+    opacity:0;
+
+    transform:
+
+        translateY(35px);
+
+    transition:
+
+        opacity 1.4s ease,
+
+        transform 1.4s ease;
+
+}
+
+
+
+.animar-bloque.visible{
+
+    opacity:1;
+
+    transform:
+
+        translateY(0);
+
+}
+
+
+
+/*==================================================
+       FONDO DORADO GENERAL
+==================================================*/
+
+body::before{
+
+    content:"✦ ✧ ✦ ✧ ✦ ✧";
+
+    position:absolute;
+
+    left:0;
+    top:-120px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:18px;
+
+    letter-spacing:55px;
+
+    color:rgba(221,183,93,.25);
+
+    pointer-events:none;
+
+    z-index:0;
+
+    animation:lluvia 12s linear infinite;
+
+    text-shadow:
+
+        0 180px rgba(221,183,93,.18),
+
+        0 360px rgba(221,183,93,.15),
+
+        0 540px rgba(221,183,93,.12),
+
+        0 720px rgba(221,183,93,.10);
+
+}
+
+
+/*==================================================
+            ESTRUCTURA DEL CONTENIDO
+==================================================*/
+
+.seccion{
+
+    width:100%;
+
+    margin:42px 0;
+
+    padding:28px 24px;
+
+    background:rgba(255,255,255,.60);
+
+    border:1px solid rgba(221,183,93,.28);
+
+    border-radius:20px;
+
+    box-shadow:
+        0 10px 28px rgba(124,58,75,.08);
+
+}
+
+
+
+.flores{
+
+    font-size:34px;
+
+    margin-bottom:18px;
+
+}
+
+
+
+/*==================================================
+                MIS XV AÑOS
+==================================================*/
+
+#bloque-flores h3{
+
+    font-size:32px;
+
+    color:#d6aa4a;
+
+    letter-spacing:2px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+
+
+/*==================================================
+                   NOMBRE
+==================================================*/
+
+#bloque-nombre{
+
+    margin-top:10px;
+
+}
+
+h1{
+
+    font-family:'Playfair Display',serif;
+
+    font-size:72px;
+
+    line-height:1.05;
+
+    color:#7b4354;
+
+    font-weight:700;
+
+    letter-spacing:0;
+
+    margin-bottom:20px;
+
+    text-shadow:
+
+        0 2px 8px rgba(255,255,255,.90),
+
+        0 0 18px rgba(123,67,84,.12);
+
+}
+
+
+
+/* apellido */
+
+h1 span{
+
+    display:block;
+
+    font-size:56px;
+
+    margin-top:8px;
+
+}
+
+
+
+/*==================================================
+           LÍNEA DECORATIVA
+==================================================*/
+
+.linea{
+
+    width:78%;
+
+    margin:22px auto 30px;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.linea::before,
+.linea::after{
+
+    content:"";
+
+    flex:1;
+
+    height:2px;
+
+    background:#ddb75d;
+
+    opacity:.55;
+
+}
+
+.linea::before{
+
+    margin-right:12px;
+
+}
+
+.linea::after{
+
+    margin-left:12px;
+
+}
+
+.linea-rombo{
+
+    color:#ddb75d;
+
+    font-size:14px;
+
+}
+
+
+
+/*==================================================
+                MENSAJE
+==================================================*/
+
+.mensaje{
+
+    max-width:88%;
+
+    margin:28px auto;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    color:#735861;
+
+    font-style:italic;
+
+    font-weight:500;
+
+}
+
+
+
+/*==================================================
+           PADRES Y PADRINOS
+==================================================*/
+
+.seccion h3{
+
+    font-size:22px;
+
+    color:#d6aa4a;
+
+    letter-spacing:2px;
+
+    margin-bottom:15px;
+
+}
+
+h2{
+
+    font-size:34px;
+
+    color:#7b4354;
+
+    line-height:1.45;
+
+    font-weight:700;
+
+}
+
+
+
+/*==================================================
+           LLUVIA DE SOBRES
+==================================================*/
+
+#bloque-regalos{
+
+    background:
+
+    linear-gradient(
+
+        rgba(255,255,255,.88),
+
+        rgba(255,255,255,.75)
+
+    );
+
+    border:2px solid rgba(221,183,93,.45);
+
+}
+
+
+
+#bloque-regalos h3{
+
+    font-size:28px;
+
+    color:#d6aa4a;
+
+    letter-spacing:3px;
+
+}
+
+
+
+#bloque-regalos .mensaje{
+
+    font-size:17px;
+
+    line-height:1.7;
+
+    color:#80636b;
+
+}
+
+
+
+#bloque-regalos strong{
+
+    display:block;
+
+    margin-top:16px;
+
+    font-size:34px;
+
+    color:#7b4354;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+/*==================================================
+            FECHA Y LUGAR
+==================================================*/
+
+.datos{
+
+    margin-top:45px;
+
+    padding-top:30px;
+
+    border-top:1px solid rgba(221,183,93,.35);
+
+}
+
+.datos h3{
+
+    font-size:24px;
+
+    color:#7b4354;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+    letter-spacing:1px;
+
+}
+
+.datos p{
+
+    margin:10px 0;
+
+    font-size:18px;
+
+    line-height:1.55;
+
+    color:#6b565d;
+
+}
+
+
+
+/*==================================================
+             MENSAJE FINAL
+==================================================*/
+
+.final{
+
+    font-size:21px;
+
+    line-height:1.6;
+
+    color:#7b4354;
+
+    margin-bottom:25px;
+
+    font-weight:600;
+
+}
+
+
+
+/*==================================================
+               CONTADOR
+==================================================*/
+
+.contador{
+
+    margin-top:35px;
+
+    padding:22px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.82);
+
+    border:1px solid rgba(221,183,93,.45);
+
+    box-shadow:
+
+        inset 0 0 18px rgba(221,183,93,.08);
+
+}
+
+.contador h2{
+
+    font-size:16px;
+
+    color:#d6aa4a;
+
+    letter-spacing:3px;
+
+    margin-bottom:12px;
+
+    text-transform:uppercase;
+
+}
+
+.contador p{
+
+    font-size:18px;
+
+    line-height:1.6;
+
+    color:#7b4354;
+
+}
+
+.contador span{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:#7b4354;
+
+}
+
+
+
+/*==================================================
+          RESPONSIVE CELULAR
+==================================================*/
+
+@media(max-width:600px){
+
+    #bloque-flores h3{
+
+        font-size:26px;
+
+    }
+
+    h1{
+
+        font-size:54px;
+
+    }
+
+    h1 span{
+
+        font-size:40px;
+
+    }
+
+    h2{
+
+        font-size:28px;
+
+    }
+
+    .mensaje{
+
+        font-size:18px;
+
+        line-height:1.7;
+
+    }
+
+    #bloque-regalos strong{
+
+        font-size:28px;
+
+    }
+
+    .datos h3{
+
+        font-size:21px;
+
+    }
+
+    .datos p{
+
+        font-size:16px;
+
+    }
+
+    .contador span{
+
+        font-size:28px;
+
+    }
+
+}
+
+
+
+/*==================================================
+      CELULARES MUY PEQUEÑOS
+==================================================*/
+
+@media(max-width:380px){
+
+    h1{
+
+        font-size:46px;
+
+    }
+
+    h1 span{
+
+        font-size:34px;
+
+    }
+
+    #bloque-flores h3{
+
+        font-size:22px;
+
+    }
+
+    .mensaje{
+
+        font-size:16px;
+
+    }
+
+    h2{
+
+        font-size:24px;
+
+    }
+
+    .datos p{
+
+        font-size:15px;
+
+    }
+
+}
+
+/*==================================================
+                ANIMACIONES
+==================================================*/
+
+@keyframes flotar{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-16px);
+
+    }
+
+}
+
+
+
+/*=========================================
+          BRILLO DEL XV
+=========================================*/
+
+@keyframes xv{
+
+    0%{
+
+        transform:scale(1);
+
+        text-shadow:
+
+            0 0 0 rgba(255,220,120,0);
+
+    }
+
+    25%{
+
+        transform:scale(1.05);
+
+    }
+
+    50%{
+
+        transform:scale(1.18);
+
+        text-shadow:
+
+            0 0 18px rgba(255,220,120,.9),
+
+            0 0 35px rgba(255,220,120,.7),
+
+            0 0 55px rgba(255,220,120,.45);
+
+    }
+
+    75%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        text-shadow:
+
+            0 0 0 rgba(255,220,120,0);
+
+    }
+
+}
+
+
+
+/*=========================================
+            LLUVIA DORADA
+=========================================*/
+
+@keyframes lluvia{
+
+    0%{
+
+        transform:
+
+            translateY(-40px);
+
+        opacity:.8;
+
+    }
+
+    50%{
+
+        opacity:.35;
+
+    }
+
+    100%{
+
+        transform:
+
+            translateY(100vh);
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+/*=========================================
+      EFECTO PREMIUM CARTA
+=========================================*/
+
+.carta{
+
+    transition:
+
+        transform .8s,
+
+        opacity 1.5s,
+
+        box-shadow .5s;
+
+}
+
+.carta:hover{
+
+    transform:
+
+        translateY(0)
+
+        scale(1.015);
+
+}
+
+
+
+/*=========================================
+      EFECTO PREMIUM SOBRE
+=========================================*/
+
+.sobre{
+
+    transition:
+
+        transform .4s,
+
+        filter .4s;
+
+}
+
+.sobre:hover{
+
+    transform:
+
+        scale(1.04);
+
+    filter:
+
+        drop-shadow(0 12px 20px rgba(0,0,0,.18));
+
+}
+
+
+
+/*=========================================
+         RESPONSIVE TABLET
+=========================================*/
+
+@media(max-width:900px){
+
+    .sobre{
+
+        width:330px;
+        height:220px;
+
+    }
+
+    .tapa{
+
+        border-left:165px solid transparent;
+        border-right:165px solid transparent;
+        border-top:122px solid #c98d97;
+
+    }
+
+    .sello{
+
+        width:62px;
+        height:62px;
+
+        left:134px;
+        top:80px;
+
+    }
+
+    .cuerpo span{
+
+        font-size:78px;
+
+    }
+
+    .carta{
+
+        max-width:580px;
+
+    }
+
+}
+
+
+
+/*=========================================
+         RESPONSIVE CELULAR
+=========================================*/
+
+@media(max-width:600px){
+
+    .sobre{
+
+        width:300px;
+        height:200px;
+
+    }
+
+    .tapa{
+
+        border-left:150px solid transparent;
+        border-right:150px solid transparent;
+        border-top:110px solid #c98d97;
+
+    }
+
+    .sello{
+
+        width:58px;
+        height:58px;
+
+        left:121px;
+        top:70px;
+
+    }
+
+    .cuerpo span{
+
+        font-size:66px;
+
+        letter-spacing:6px;
+
+    }
+
+    .sobre p{
+
+        font-size:15px;
+
+    }
+
+}
+
+
+
+/*=========================================
+      CELULARES PEQUEÑOS
+=========================================*/
+
+@media(max-width:380px){
+
+    .sobre{
+
+        width:270px;
+        height:180px;
+
+    }
+
+    .tapa{
+
+        border-left:135px solid transparent;
+        border-right:135px solid transparent;
+        border-top:100px solid #c98d97;
+
+    }
+
+    .sello{
+
+        width:52px;
+        height:52px;
+
+        left:109px;
+        top:63px;
+
+        font-size:26px;
+
+    }
+
+    .cuerpo span{
+
+        font-size:58px;
+
+    }
+
+}
+
+
+
+/*=========================================
+      PRIMERA SECCIÓN
+=========================================*/
+
+.seccion:first-of-type{
+
+    margin-top:18px;
+
+}
+
+
+
+/*=========================================
+     ÚLTIMO DETALLE PREMIUM
+=========================================*/
+
+#bloque-regalos{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+#bloque-regalos::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            120deg,
+
+            transparent 20%,
+
+            rgba(255,255,255,.45) 50%,
+
+            transparent 80%
+
+        );
+
+    animation:brillo 5s linear infinite;
+
+}
+
+@keyframes brillo{
+
+    from{
+
+        transform:translateX(-120%);
+
+    }
+
+    to{
+
+        transform:translateX(120%);
+
+    }
+
+}
